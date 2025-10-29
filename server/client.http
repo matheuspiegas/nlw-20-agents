@@ -2,9 +2,48 @@
 @baseUrl = http://localhost:3333
 
 # Health check
+# @name healthCheck
 GET {{baseUrl}}/ping
 
 ###
 
 # Get rooms
+# @name getRooms
 GET {{baseUrl}}/rooms
+
+###
+
+# Create room
+# @name createRoom
+
+POST {{baseUrl}}/rooms
+Content-Type: application/json
+
+{
+  "name": "Support Room",
+  "description": "Room for customer support"
+}
+
+###
+
+@roomId = {{createRoom.response.body.$.roomId}}
+
+###
+
+# Get room questions
+# @name getRoomQuestions
+GET {{baseUrl}}/rooms/{{roomId}}/questions
+
+###
+
+# Create question
+# @name createQuestion
+
+POST {{baseUrl}}/rooms/{{roomId}}/questions
+Content-Type: application/json
+
+{
+  "question": "Qual é a melhor forma de aprender TypeScript?"
+}
+
+###
