@@ -15,6 +15,13 @@
       "when": 1761694814126,
       "tag": "0001_keen_electro",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1765112487420,
+      "tag": "0002_boring_blur",
+      "breakpoints": true
     }
   ]
 }
